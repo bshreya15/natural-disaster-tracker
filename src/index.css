@@ -4,7 +4,7 @@ body {
   overflow: hidden;
 }
 
-.header{
+.header {
   padding: 10px;
   background-color: firebrick;
   color: #fff;
@@ -12,20 +12,30 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  z-index:100;
+  z-index: 100;
 }
 
-.header h1{
-  font-size:25px;
+.header h1 {
+  font-size: 25px;
   padding: 0;
   margin: 0;
   text-align: center;
+}
+
+.sidebar-menu {
+  display: none;
+  height: 100vh;
+  width: 250px;
+  background-color: rgb(230, 99, 99);
+  z-index: 100;
+  position: absolute;
 }
 
 .map {
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .location-icon {
@@ -34,7 +44,7 @@ body {
 }
 
 .loader {
-  display : flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -49,7 +59,7 @@ body {
   margin-top: -150px;
 }
 
-.location-info{
+.location-info {
   position: absolute;
   top: 100px;
   right: 50px;
@@ -61,11 +71,11 @@ body {
   font-size: 18px;
 }
 
-.location-info ul{
+.location-info ul {
   list-style-type: none;
   padding: 0;
 }
 
-.location-info li{
+.location-info li {
   padding: 5px 0;
 }

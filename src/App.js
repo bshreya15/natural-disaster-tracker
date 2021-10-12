@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import {BrowserRouter as Router, Switch,Route} from "react-router-dom";
+import Navbar from "./components/Navbar";
 import Map from "./components/Map";
-import Loader from "./components/Loader"
+import Loader from "./components/Loader";
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   const [eventData, setEventData] = useState([]);
@@ -11,7 +14,8 @@ function App() {
     const fetchEvents = async () => {
       setLoading(true);
       const res = await fetch(
-        'https://eonet.sci.gsfc.nasa.gov/api/v2.1/events');
+        "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events"
+      );
       const { events } = await res.json();
 
       setEventData(events);
@@ -23,10 +27,16 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Header/>
-      { !loading ? <Map eventData={eventData}/> : <Loader /> }
-    </div>
+    <>
+    <Router>
+      <Navbar>
+        <Route path='/'/>
+        <Header />
+        <Sidebar />
+        {!loading ? <Map eventData={eventData} /> : <Loader />}
+      </Navbar>
+    </Router>
+    </>
   );
 }
 
